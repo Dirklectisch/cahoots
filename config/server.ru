@@ -3,5 +3,5 @@
 require 'faye'
 require 'cahoots'
 
-faye_server = Cahoots.create_server
+faye_server = Cahoots::Server.create
 run faye_server

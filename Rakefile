@@ -8,3 +8,8 @@ task :console do
   sh "irb -I #{ENV['LIBDIR']} -r #{'cahoots'} --simple-prompt"
 end
 
+desc "Starts a default server"
+task :start do
+  sh "rackup -I #{ENV['LIBDIR']} #{ENV['APP_ROOT']}/config/server.ru -s thin -E production"
+end
+
