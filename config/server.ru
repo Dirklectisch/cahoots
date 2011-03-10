@@ -1,7 +1,8 @@
-require 'faye'
+#\ -s thin -E production
+
 require 'cahoots'
 
-use Rack::Static, :urls => ["/"], :root => "client"
+use Faye::RackAdapter, :mount      => '/faye',
+                       :timeout    => 45
 
-faye_server = Cahoots::Server.create
-run faye_server
+run Rack::File.new "client"
