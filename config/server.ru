@@ -1,6 +1,7 @@
-# rackup config/server.ru -s thin -E production
+# rackup -Ilib config/server.ru -s thin -E production
 
 require 'faye'
+require 'cahoots'
 
-faye_server = Faye::RackAdapter.new(:mount => '/file', :timeout => 45)
+faye_server = Cahoots.create_server
 run faye_server
