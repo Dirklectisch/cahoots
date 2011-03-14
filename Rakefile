@@ -10,6 +10,6 @@ end
 
 desc "Starts a default server"
 task :start do
-  sh "rackup -I #{ENV['LIBDIR']} #{ENV['APP_ROOT']}/config/server.ru -s thin -E production"
+  sh "rackup -I #{ENV['LIBDIR']} #{ENV['APP_ROOT']}/config/server.ru -s thin"
 end
 

@@ -15,7 +15,6 @@ EM.run {
     puts "client B received message #{message.inspect}"
   end
 
-  client_a.publish('/client/aap', {'text' => 'msg from aap'})
-  client_b.publish('/client/beer', {'text' => 'msg from beer'})
-  
+  client_a.publish('/aap', {'text' => 'msg from aap'})
+  client_b.publish('/beer', {'text' => 'msg from beer'})
 }
