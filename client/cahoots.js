@@ -2,19 +2,29 @@
 var Cahoots = Cahoots || {};
 
 Cahoots.Buffer = function(element) {
-  var client = new Faye.Client('http://localhost:9292/faye');
+  var CHANNEL_FILE = '/file';
+  var client = new Faye.Client('http://localhost:9292/faye'),
+      clientId = Math.floor(Math.random() * 1000);
+
+  element.addEventListener('keyup', function() {
+    console.log('sending:', this.value);
+    client.publish(CHANNEL_FILE, { clientId: clientId, contents: this.value });
+  }, false);
 
   this.subscribe = function() {
-    this.fileChannel = client.subscribe('/file', this.onFile);
+    this.fileChannel = client.subscribe(CHANNEL_FILE, this.onFile);
     this.fileChannel.callback(function() {
       console.log('Wh00t! Subscription acknowledged.');
     });
   };
 
   this.onFile = function(msg) {
-    element.value = msg;
+    if (msg.clientId === clientId) return;
+    element.value = msg.contents;
+    console.log('message:', msg);
   };
 };
+
 
 Cahoots.Echo = function() {
   var client = new Faye.Client('http://localhost:9292/faye');
