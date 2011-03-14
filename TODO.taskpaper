@@ -19,4 +19,10 @@ Cahoots:
 	Spikes / Research:
 			- Serve static pages without interputing the event server? @done
 			- Is Rack::Test useful for testing the server?
+			- Pub/sub interfaces?
+				- sessions/who (respond if you have workspaces to share)
+				- sessions/<id> (subscribe to be updated on session, or publish workspace here, publishes file currently editing)
+				- sessions/<id>/files/list
+				- sessions/<id>/files/path/to/file (subscrive to this file)
+				- sessions/<id>/chat
 		
