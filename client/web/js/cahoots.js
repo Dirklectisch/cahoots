@@ -1,6 +1,12 @@
 // Initialize namespace
 var Cahoots = Cahoots || {};
 
+Cahoots.Client = function() {
+  this.subscribe = function() {
+    return true;
+  };
+}
+
 Cahoots.Buffer = function(element) {
   var CHANNEL_FILE = '/file';
   var client = new Faye.Client('http://localhost:9292/faye'),

@@ -25,7 +25,7 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
-		- client/web/css/*.css
+    - client/web/css/*.css
 
 # helpers
 #
