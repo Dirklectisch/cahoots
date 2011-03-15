@@ -7,4 +7,4 @@ use Faye::RackAdapter, :mount      => '/faye',
 use Rack::ShowExceptions
 use Rack::ShowStatus
 
-run Rack::File.new "client"
+run Rack::File.new "client/web"

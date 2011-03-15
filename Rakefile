@@ -13,3 +13,5 @@ task :start do
   sh "rackup -I #{ENV['LIBDIR']} #{ENV['APP_ROOT']}/config/server.ru -s thin"
 end
 
+require 'jasmine'
+load 'jasmine/tasks/jasmine.rake'
