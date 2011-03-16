@@ -1,16 +1,19 @@
-/workspaces/list
-/workspaces/[name]
-/workspaces/[name]/
-/workspaces/[name]
+describe workspace
 
-describe workspaces
-
-it should announce itself as shared
+it should publish its creation
+it should publish its removal
 it should be able to list protocols
-it should be able to get the folder structure
+it should be able to list the files
+it should publish new files
+it should publish removed files
+it should publish active file
+it should be able to track another workspace
+
+describe file
+it should publish changes
 
 describe protocol
-it should be able to list itself
+it should announce its existence
 
 describe protocol_file
 it should be able to send a full file
