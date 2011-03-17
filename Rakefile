@@ -9,8 +9,12 @@ task :console do
 end
 
 desc "Starts a default server"
-task :start do
+task :start => :copy do
   sh "rackup -I #{ENV['LIBDIR']} #{ENV['APP_ROOT']}/config/server.ru -s thin"
+end
+
+task :copy do
+  cp "lib/cahoots.js", "client/web/js/cahoots.js"
 end
 
 require 'jasmine'
