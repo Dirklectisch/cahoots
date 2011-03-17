@@ -1,3 +1,17 @@
+/workspaces
+
+/workspaces
+
+/projects
+
+/projects/[project]
+/projects/[project]/chat
+/projects/[project]
+-> newfile
+-> deletefile
+-> filechanged { file: [filename] }
+/projects/[project]/files/[filename]
+
 describe workspace
 
 it should publish its creation
