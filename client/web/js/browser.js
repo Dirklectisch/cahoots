@@ -3,5 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
       buffer = new Cahoots.Buffer(sandbox);
   buffer.subscribe();
   
-  window.workspace = new Cahoots.Workspace("browser", new Faye.Client("http://localhost:9292/faye"))
+  window.workspace = new Cahoots.Workspace("browser", new Faye.Client("/channel"));
+  window.workspace.connect();
 }, false);
