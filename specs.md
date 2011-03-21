@@ -1,39 +1,39 @@
-/workspaces
+# Cahoots specifications draft
+
+## API
+
+### Static
 
 /workspaces
+-> list
+/workspaces/[workspace]
+-> list
+/workspaces/[workspace]/files/[path]
 
-/projects
+### Dynamic
 
-/projects/[project]
-/projects/[project]/chat
-/projects/[project]
--> newfile
--> deletefile
--> filechanged { file: [filename] }
-/projects/[project]/files/[filename]
+/workspaces
+-> add ( workspace )
+-> remove ( workspace )
 
-describe workspace
+/workspaces/[workspace]
+-> new ( path, hash )
+-> delete ( path )
+-> updated ( path, hash )
 
-it should publish its creation
-it should publish its removal
-it should be able to list protocols
-it should be able to list the files
-it should publish new files
-it should publish removed files
-it should publish active file
-it should be able to track another workspace
+/workspaces/[workspace]/chat
+-> say ( text )
 
-describe file
-it should publish changes
+/workspaces/[workspace]/files/[path]
 
-describe protocol
-it should announce its existence
+## Scenarios
 
-describe protocol_file
-it should be able to send a full file
+### Alice wants to track Bobs workspace in her browser
 
-describe protocol_line
-it should be able to send a line
-
-describe protocol_range
-it should be able to send a range of characters
+1. Bob starts cahoots at current workspace, calling it 'bob'.
+2. Bob sends URL, http://cahoots/workspaces/bob, to Alice.
+3. Alice points her browser at /workspaces/bob and requests the page.
+4. Cahoots sees 'Accept' header set to text/html, and sends cahoots web-client.
+5. Alice's web-client does a static 'list' on the current workspace.
+6. Alice's web-client subscribes to workspace and file channels.
+7. Bob's cahoots keeps pushing updates on file and workspace channels keeping Alice up-to-date.
