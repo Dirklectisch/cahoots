@@ -1,30 +1,30 @@
-# Cahoots specifications draft
+# Cahoots specifications (draft)
 
 ## API
 
 ### Static
 
-/workspaces
--> list
-/workspaces/[workspace]
--> list
-/workspaces/[workspace]/files/[path]
+  /workspaces
+  -> list
+  /workspaces/[workspace]
+  -> list
+  /workspaces/[workspace]/files/[path]
 
 ### Dynamic
 
-/workspaces
--> add ( workspace )
--> remove ( workspace )
+  /workspaces
+  -> add ( workspace )
+  -> remove ( workspace )
 
-/workspaces/[workspace]
--> new ( path, hash )
--> delete ( path )
--> updated ( path, hash )
+  /workspaces/[workspace]
+  -> new ( path, hash )
+  -> delete ( path )
+  -> updated ( path, hash )
 
-/workspaces/[workspace]/chat
--> say ( text )
+  /workspaces/[workspace]/chat
+  -> say ( text )
 
-/workspaces/[workspace]/files/[path]
+  /workspaces/[workspace]/files/[path]
 
 ## Scenarios
 
