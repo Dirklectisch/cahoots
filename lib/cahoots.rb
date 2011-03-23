@@ -1,11 +1,27 @@
 require 'cahoots/server'
 require 'sinatra/base'
+require 'json'
 
 module Cahoots
-end # Cahoots
+  
+  class Workspaces < Sinatra::Base
+    get '/' do
+      "Default index"
+    end
 
-class MyApp < Sinatra::Base
-  get '/workspaces/:workspace' do
-    "Hello #{params[:workspace]}"
+    get '/workspaces' do
+      "Wh00t!"
+    end
+
+    get '/workspaces.json' do
+      content_type :json
+      {}.to_json
+    end
+
+    get '/workspaces/:workspace' do
+      "Hello #{params[:workspace]}"
+    end
+    
   end
-end
+  
+end # Cahoots
