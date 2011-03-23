@@ -17,5 +17,11 @@ task :copy do
   cp "lib/cahoots.js", "client/web/js/cahoots.js"
 end
 
+desc "Runs ruby tests"
+task :test do
+  require 'rake/runtest'
+  Rake.run_tests 'test/**/*.rb'
+end
+
 require 'jasmine'
 load 'jasmine/tasks/jasmine.rake'
